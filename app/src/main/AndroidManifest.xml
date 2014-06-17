@@ -1,0 +1,93 @@
+<!--
+  Copyright 2012 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pos4mobile.slideshow"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!--
+        This example's minimum API level is 14 due to the following recent
+        key platform features:
+
+        API 11: property animations (android.animations package)
+        API 12: ViewPropertyAnimator
+        API 14: View properties (android.util.Property) such as View.X and View.Y.
+    -->
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="15" />
+    
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+ 	<uses-permission android:name='android.permission.WAKE_LOCK'/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
+    <application android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:theme="@android:style/Theme.Holo.Light">
+
+        <activity android:name="com.pos4mobile.slideshow.StartupActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />                
+            </intent-filter>
+        </activity>
+        
+        <activity android:name="com.pos4mobile.slideshow.ImageChangeActivity"
+            android:label="@string/title_screen_slide"
+            android:parentActivityName="com.pos4mobile.slideshow.StartupActivity"
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="sensorLandscape"
+			android:launchMode="singleInstance"
+            android:stateNotNeeded="true">         
+		    
+		    <intent-filter>
+		        <action android:name="android.intent.action.MAIN" />
+		        <category android:name="android.intent.category.HOME"/>
+		        <category android:name="android.intent.category.DEFAULT" />
+		    </intent-filter>
+		                    
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>        
+        
+        <activity android:name="com.pos4mobile.slideshow.SettingsActivity"
+            android:label="@string/title_settings"
+            android:parentActivityName="com.pos4mobile.slideshow.StartupActivity"
+            android:uiOptions="splitActionBarWhenNarrow">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        
+		<receiver android:enabled="true" android:name="com.pos4mobile.slideshow.receivers.OnBootUpReceiver"
+		        android:permission="android.permission.RECEIVE_BOOT_COMPLETED">		
+	        <intent-filter>	    
+	            <action android:name="android.intent.action.BOOT_COMPLETED" />
+	            <category android:name="android.intent.category.DEFAULT" />
+	        </intent-filter>
+		</receiver>     
+		
+		<receiver android:enabled="true" android:name="com.pos4mobile.slideshow.receivers.OnChargeReceiver">		
+	        <intent-filter>
+	            <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>	            
+	            <category android:name="android.intent.category.DEFAULT" />
+	        </intent-filter>
+		</receiver>  
+				
+		<receiver android:enabled="true" android:name="com.pos4mobile.slideshow.receivers.OnAlarmReceiver" />   
+    </application>
+
+</manifest>

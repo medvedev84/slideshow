@@ -1,0 +1,63 @@
+<!--
+  Copyright 2012 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Titles -->
+    <string name="app_name">POS4Mobile SlideShow</string>
+    <string name="title_screen_slide">Start slide show</string>
+    <string name="title_settings">Settings</string>
+
+    <!--  Settings -->
+    <string name="settings_run_startup">Run at startup:</string>
+    <string name="settings_run_charge">Run on charge:</string>    
+    <string name="settings_full_screen">Full screen mode:</string>
+    <string name="settings_disable_screen">Disable screen:</string>
+    <string name="settings_triple_tap">Stop on triple tap:</string>
+    <string name="settings_file_source">Source folder:</string>
+    <string name="settings_file_source_init_path">/storage/sdcard0/</string>
+    <string name="settings_file_select">...</string>
+    <string name="settings_slide_show_delay">Delay duration</string>
+    <string name="settings_slide_show_delay_seconds">in seconds:</string>
+    <string name="settings_slide_show_delay_minutes">in minutes:</string>
+    <string name="settings_slide_show_delay_hours">in hours:</string>
+    <string name="settings_slide_show_delay_seconds_init">0</string>
+    <string name="settings_slide_show_delay_minutes_init">0</string>
+    <string name="settings_slide_show_delay_hours_init">0</string>    
+    <string name="settings_start_time">Time to run app:</string>
+    <string name="settings_end_time">Time to finish app:</string>   
+    <string name="settings_start_time_init">00:00</string>
+    <string name="settings_end_time_init">00:00</string>
+    <string name="settings_restore_button">Restore defaults</string>
+    <string name="settings_start_button">Start slide show</string>
+    <string name="settings_add_more">Add more</string>
+    <string name="settings_remove_last">Remove last</string>
+
+    <!--  Other -->
+    <string name="warning_no_files_title">No files</string>
+    <string name="warning_no_files_body">There are no images to show at \'%1$s\' directory. Would like to select another one?</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="warning_no_set_slideshow_title">Set up SlideShow as default launcher</string>
+    <string name="warning_no_set_slideshow_body">If you want to avoid interrupting by clicking \'Home\' button, then peform this steps:\n   
+        1) clear defaults for previous installed launcher on your device;\n
+        2) start slide show process;\n
+        3) tap \'Home\' button and select SlideShow as default with button \'Always\' at the first prompt!\n
+        You can always revert it from the application\'s settings later.</string>
+    <string name="warning_no_set_default_title">Revert SlideShow as default launcher</string>
+    <string name="warning_no_set_default_body">To enable default behaviour of \'Home\' button tap it and 
+        select launcher provided by manufacturer as default with button \'Always\' at the first prompt!</string>        
+</resources>

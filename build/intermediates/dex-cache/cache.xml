@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="D:\work\android2\MainActivity\app\build\intermediates\pre-dexed\debug\android-support-v13-facad9cc0a01383503ae5f627da6f7cc0f9590b1.jar"
+        jar="D:\work\android2\MainActivity\app\libs\android-support-v13.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="0a0cf96dabecd7b65a3638a229e7bdb42e6b0a77"/>
+
+</pre-dex-items>

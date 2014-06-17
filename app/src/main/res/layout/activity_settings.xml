@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">    
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical" 
+	    android:padding="5dp">    
+	
+	    	    <TableLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical">
+		        
+	    	        <TableRow android:padding="5dp">
+	    	            <TextView
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:text="@string/settings_file_source" />
+
+                        <TextView
+                            android:id="@+id/textViewSourcePath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/settings_file_source_init_path" />
+
+                        <Button
+                            android:id="@+id/buttonSourceSelect"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_file_select" />
+	    	        </TableRow>
+
+                    <TableRow
+                        android:id="@+id/tableRowSelect2"
+                        android:padding="5dp" android:visibility="gone">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_file_source" />
+
+                        <TextView
+                            android:id="@+id/textViewSourcePath2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/settings_file_source_init_path" />
+
+                        <Button
+                            android:id="@+id/buttonSourceSelect2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_file_select" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/tableRowSelect3"
+                        android:padding="5dp" android:visibility="gone">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_file_source" />
+
+                        <TextView
+                            android:id="@+id/textViewSourcePath3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/settings_file_source_init_path" />
+
+                        <Button
+                            android:id="@+id/buttonSourceSelect3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_file_select" />
+                    </TableRow>
+
+                    <TableRow android:padding="5dp">
+                        <LinearLayout
+                            android:layout_span="2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <Button
+                                android:id="@+id/buttonRemoveLast"
+                                android:layout_weight="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/settings_remove_last" />
+
+                            <Button
+                                android:id="@+id/buttonAddMore"
+                                android:layout_weight="1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/settings_add_more" />
+                        </LinearLayout>
+                    </TableRow>
+
+	    	        <TableRow android:padding="5dp">
+	    	            <TextView
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:text="@string/settings_slide_show_delay"/>
+	    	        </TableRow>
+
+	    	        <TableRow android:padding="5dp">
+	    	            <TextView
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:text="@string/settings_slide_show_delay_seconds"
+                            android:layout_gravity="center_vertical"/>
+
+                        <SeekBar
+                            android:id="@+id/seekBarDelaySeconds"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                        <TextView
+                            android:id="@+id/textViewDelaySeconds"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_slide_show_delay_seconds_init"/>
+	    	        </TableRow>
+
+	    	        <TableRow android:padding="5dp">
+	    	            <TextView
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:text="@string/settings_slide_show_delay_minutes"
+                            android:layout_gravity="center_vertical"/>
+                        <SeekBar
+                            android:id="@+id/seekBarDelayMinutes"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:id="@+id/textViewDelayMinutes"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_slide_show_delay_minutes_init"/>
+	    	        </TableRow>
+
+	    	        <TableRow android:padding="5dp">
+	    	            <TextView
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:text="@string/settings_slide_show_delay_hours"
+                            android:layout_gravity="center_vertical"/>
+                        <SeekBar
+                            android:id="@+id/seekBarDelayHours"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                        <TextView
+                            android:id="@+id/textViewDelayHours"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_slide_show_delay_hours_init" />
+	    	        </TableRow>
+
+	    	        <TableRow android:padding="5dp">
+	    	            <TextView
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:text="@string/settings_run_startup"/>
+	    	            <CheckBox
+	    	                android:id="@+id/checkBoxStarup"
+	    	                android:layout_width="wrap_content"
+	    	                android:layout_height="wrap_content"/>
+	    	        </TableRow>
+
+                    <TableRow android:padding="5dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_run_charge"/>
+                        <CheckBox
+                            android:id="@+id/checkBoxCharge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </TableRow>
+
+                    <TableRow android:padding="5dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_full_screen"/>
+                        <CheckBox
+                            android:id="@+id/checkBoxFullScreen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </TableRow>
+
+                    <TableRow android:padding="5dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_triple_tap"/>
+                        <CheckBox
+                            android:id="@+id/checkBoxTripleTap"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </TableRow>
+
+                    <TableRow android:padding="5dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_start_time"
+                            android:layout_gravity="center_vertical"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <CheckBox
+                                android:id="@+id/checkBoxStartDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/textViewStartTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/settings_start_time_init" />
+                            <Button
+                                android:id="@+id/buttonPickStartTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:text="@string/settings_file_select" />
+                        </LinearLayout>
+                    </TableRow>
+
+                    <TableRow android:padding="5dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/settings_end_time"
+                            android:layout_gravity="center_vertical"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <CheckBox
+                                android:id="@+id/checkBoxEndDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/textViewEndTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="@string/settings_end_time_init" />
+                            <Button
+                                android:id="@+id/buttonPickEndTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:text="@string/settings_file_select" />
+                        </LinearLayout>
+                    </TableRow>
+
+		        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <Button
+                android:id="@+id/buttonRestoreDefaults"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_restore_button"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/buttonStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/settings_start_button"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
