@@ -2,14 +2,19 @@ package com.pos4mobile.slideshow;
 
 import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog.OnTimeSetListener;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -20,6 +25,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.pos4mobile.slideshow.receivers.OnAlarmReceiver;
+import com.pos4mobile.slideshow.utils.AboutDialog;
 import com.pos4mobile.slideshow.utils.FileDialog;
 import com.pos4mobile.slideshow.utils.StorageUtils;
 
@@ -226,29 +232,7 @@ public class SettingsActivity extends FragmentActivity {
             }
         });
 
-        //checkBoxDisableScreen = (CheckBox) findViewById(R.id.checkBoxDisableScreen);
         checkBoxFullScreen = (CheckBox) findViewById(R.id.checkBoxFullScreen);
-
-        /*
-        checkBoxDisableScreen.setChecked(StorageUtils.isScreenDisabled(SettingsActivity.this));
-        checkBoxDisableScreen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton chackbox, boolean value) {
-				if (value) {
-					// need to set up SlideShow as default launcher
-					showSelectSlideShowLauncherDialog();
-				} else {
-					// need to get back to default launcher
-					String packageName = getPackageName();
-					getPackageManager().clearPackagePreferredActivities(packageName);
-					showRevertSlideShowLauncherDialog();
-				}
-                // force to enable interrupting by triple tap
-                checkTripleTapCheckbox();
-			}
-		});
-        */
-
         checkBoxFullScreen.setChecked(StorageUtils.getBooleanValue(SettingsActivity.this, StorageUtils.FULL_SCREEN_MODE, true));
         checkBoxFullScreen.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -373,10 +357,7 @@ public class SettingsActivity extends FragmentActivity {
         });
     }
 
-
-
     private void checkTripleTapCheckbox(){
-        //boolean stopByTripleTap = checkBoxDisableScreen.isChecked() || checkBoxFullScreen.isChecked();
         boolean stopByTripleTap = checkBoxFullScreen.isChecked();
         checkBoxTripleTap.setChecked(stopByTripleTap);
         checkBoxTripleTap.setEnabled(!stopByTripleTap);
@@ -427,33 +408,22 @@ public class SettingsActivity extends FragmentActivity {
         PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
         mgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pi);                   
     }
-    
-    private void showSelectSlideShowLauncherDialog() {
-    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(R.string.warning_no_set_slideshow_title);
-		builder.setMessage(R.string.warning_no_set_slideshow_body);
-		builder.setPositiveButton(R.string.dialog_ok, new DialogInterface.OnClickListener() {				
-			@Override
-			public void onClick(DialogInterface arg0, int arg1) {
-				Intent showSettings = new Intent();
-				showSettings.setAction(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-				Uri uriAppSettings = Uri.fromParts("package", StorageUtils.getCurrentLauncherPackageName(getPackageManager()), null);
-				showSettings.setData(uriAppSettings);
-				startActivity(showSettings);		
-			}
-		});		    			    		
-		AlertDialog dialog = builder.create();
-		dialog.show();    	
-    }   
 
-    private void showRevertSlideShowLauncherDialog() {
-    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(R.string.warning_no_set_default_title);
-		builder.setMessage(R.string.warning_no_set_default_body);
-		builder.setPositiveButton(R.string.dialog_ok, null);		    			    					
-		AlertDialog dialog = builder.create();
-		dialog.show();    	
-    } 
-         
-    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.about, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about:
+                (new AboutDialog(this)).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

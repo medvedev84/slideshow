@@ -17,7 +17,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pos4mobile.slideshow"
     android:versionCode="1"
-    android:versionName="1.0">
+    android:versionName="1.1">
 
     <!--
         This example's minimum API level is 14 due to the following recent
@@ -56,7 +56,6 @@
 		    
 		    <intent-filter>
 		        <action android:name="android.intent.action.MAIN" />
-		        <category android:name="android.intent.category.HOME"/>
 		        <category android:name="android.intent.category.DEFAULT" />
 		    </intent-filter>
 		                    

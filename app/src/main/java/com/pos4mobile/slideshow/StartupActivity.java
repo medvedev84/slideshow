@@ -4,11 +4,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.pos4mobile.slideshow.utils.AboutDialog;
 import com.pos4mobile.slideshow.utils.StorageUtils;
 
 import java.io.File;
@@ -58,8 +62,14 @@ public class StartupActivity extends Activity {
             copyFile(R.raw.image5, "image5.jpg", outputDir);
             copyFile(R.raw.image6, "image6.jpg", outputDir);
             copyFile(R.raw.image7, "image7.jpg", outputDir);
+
+            // save predefined data
             StorageUtils.saveStringValue(StartupActivity.this, StorageUtils.SOURCE_PATH, appDirPath);
             StorageUtils.saveIntValue(StartupActivity.this, StorageUtils.DELAY, StorageUtils.PREDEFINED_DELAY);
+            StorageUtils.saveBooleanValue(StartupActivity.this, StorageUtils.RUN_AT_STARTUP, true);
+            StorageUtils.saveBooleanValue(StartupActivity.this, StorageUtils.RUN_ON_CHARGE, true);
+            StorageUtils.saveBooleanValue(StartupActivity.this, StorageUtils.UNBLOCK_TRIPLE_TAP, true);
+            StorageUtils.saveBooleanValue(StartupActivity.this, StorageUtils.FULL_SCREEN_MODE, true);
         }
     }
 
@@ -83,6 +93,24 @@ public class StartupActivity extends Activity {
         finally {
             in.close();
             out.close();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.about, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about:
+                (new AboutDialog(this)).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

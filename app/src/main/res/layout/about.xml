@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dp">
+
+        <TableRow>
+            <TextView
+                android:layout_gravity="right"
+                android:text="@string/about_app_label"/>
+            <TextView
+                android:paddingLeft="10dp"
+                android:textStyle="bold"
+                android:text="@string/about_app_title"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_gravity="right"
+                android:text="@string/about_app_version_label"/>
+            <TextView
+                android:id="@+id/versionTextView"
+                android:paddingLeft="10dp"
+                android:textStyle="bold"
+                android:text="@string/about_app_version_title"/>
+        </TableRow>
+
+        <TableRow
+            android:paddingTop="20dp">
+            <TextView
+                android:layout_gravity="right"
+                android:text="@string/about_manufacturer_label"/>
+            <TextView
+                android:paddingLeft="10dp"
+                android:textStyle="bold"
+                android:text="@string/about_manufacturer_value"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_gravity="right"
+                android:text="@string/about_manufacturer_address_label"/>
+            <TextView
+                android:paddingLeft="10dp"
+                android:textStyle="bold"
+                android:text="@string/about_manufacturer_address_value"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_gravity="right"
+                android:text="@string/about_manufacturer_phone_label"/>
+            <TextView
+                android:paddingLeft="10dp"
+                android:textStyle="bold"
+                android:text="@string/about_manufacturer_phone_value"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_gravity="right"
+                android:text="@string/about_manufacturer_email_label"/>
+            <TextView
+                android:paddingLeft="10dp"
+                android:textStyle="bold"
+                android:text="@string/about_manufacturer_email_value"/>
+        </TableRow>
+
+    </TableLayout>

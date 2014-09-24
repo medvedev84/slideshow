@@ -102,7 +102,8 @@ public class ImageChangeActivity extends Activity {
             display.getSize(size);
 
         	ImageView iv = ((ImageView) findViewById(R.id.myImageView));             
-            final ChangeShowRunner runner = new ChangeShowRunner(StorageUtils.getIntValue(ImageChangeActivity.this, StorageUtils.DELAY, StorageUtils.MIN_DELAY), files, iv, this, size.x, size.y);
+            int delay = StorageUtils.getIntValue(ImageChangeActivity.this, StorageUtils.DELAY, StorageUtils.PREDEFINED_DELAY);
+            final ChangeShowRunner runner = new ChangeShowRunner(delay, files, iv, this, size.x, size.y);
             runner.start();                                            
             
             boolean isUnblockOnTripleTap = StorageUtils.getBooleanValue(ImageChangeActivity.this, StorageUtils.UNBLOCK_TRIPLE_TAP, true);           
